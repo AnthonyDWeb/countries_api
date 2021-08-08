@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>API Countries</title>
+</head>
+
+<body>
+  <h1>Countries API</h1>
+  <input type="text" id="userSearchValue"  placeholder="Enter a country">
+  <button id="btnShowData">Show Data</button>
+
+  <div class="container">
+
+    <form>
+  
+      <div>
+        <input type="radio" id="country" name="searcher" value="country" checked>
+        <label for="country">Country</label>
+      </div>
+  
+      <div>
+        <input type="radio" id="capital" name="searcher"  value="capital">
+        <label for="capital">Capital</label>
+      </div>
+      
+      <div>
+        <input type="radio" id="region" name="searcher"  value="region">
+        <label for="region">Region</label>
+      </div>
+      <input list="browsers" name="countryByRegion" id="countryByRegion" placeholder="Choose your region">
+      <label for="countryByRegion"></label>
+      <datalist id="browsers">
+        <option class="searchRegion" value="europe" selected></option>
+        <option class="searchRegion" value="asia"></option>
+        <option class="searchRegion" value="africa"></option>
+        <option class="searchRegion" value="americas"></option>
+        <option class="searchRegion" value="oceania"></option>
+        <option class="searchRegion" value="polar"></option>
+      </datalist>
+      <input type="submit" id="SendByRegion">
+    </form>
+
+    <div class="data">
+      <div id="list"></div>
+    </div>
+  </div>
+
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
