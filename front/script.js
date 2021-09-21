@@ -2,7 +2,7 @@
 window.onload = () => {
     getAllCountries();
     document.getElementById("btnShowData").addEventListener("click", handleClick);
-    document.getElementById("countryByRegion").addEventListener("click", handleClickRegion);
+    document.getElementById("SendByRegion").addEventListener("click", handleClickRegion);
 }
 
 //  recupère la réponse server en json utilisable pour js
@@ -15,14 +15,12 @@ async function getAllCountries() {
 async function getRegionSearch(userSearchValue) {
     const res = await fetch(`http://localhost:8005/region/${userSearchValue}`);
     const jsonRes = await res.json();
-    console.log(jsonRes);
     updateList(jsonRes.region);
 }
 
 async function getCountryByRegion(regionName) {
     const res = await fetch(`http://localhost:8005/search/${regionName}`);
     const jsonRes = await res.json();
-    console.log(jsonRes)
     updateList(jsonRes.region);
 }
 async function getCountrySearch(userSearchValue) {
@@ -56,7 +54,6 @@ updateList = (list) => {
 async function handleClick() {
     const radioInputName = document.querySelector("input[name=searcher]:checked").value;
     const userSearchValue = document.getElementById("userSearchValue").value;
-    console.log(userSearchValue)
     if (radioInputName === "country") {
         getCountrySearch(userSearchValue);
     } else if (radioInputName === "capital") {
@@ -65,8 +62,9 @@ async function handleClick() {
         getRegionSearch(userSearchValue)
     }
 }
-async function handleClickRegion() {
-    const regionName = document.getElementsByClassName("option[class=searchRegion]:checked").value;
-    console.log('this is :' +regionName);
+async function handleClickRegion(e) {
+    e.preventDefault();
+    const regionName = document.getElementById("countryByRegion").value;
     getCountryByRegion(regionName);
+    document.getElementById("countryByRegion").value = "";
 }

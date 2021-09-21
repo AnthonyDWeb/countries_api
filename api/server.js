@@ -4,18 +4,15 @@ const cors = require('cors');
 app.use(cors());
 
 const countriesData = require("./countriesData.json");
-const { error } = require("console");
-app.get('/all', cors(), (req, res) => {
-
-
-    let countries = countriesData.map((country) => (
-        { name: country.name, capital: country.capital, region: country.region, currencie: country.currencies[0].name }
-    ))
+app.get('/all', (req, res) => {
+    let countries = countriesData.map((country) => ({ 
+        name: country.name, capital: country.capital, region: country.region, currencie: country.currencies[0].name 
+    }))
     res.json(countries)
 })
 
 
-app.get('/country/:countryName',cors(), (req, res) => {
+app.get('/country/:countryName', (req, res) => {
     const countryName = req.params.countryName.toLowerCase();
 
     // On filtre les données pour récupérer juste le pays qui nous intéresse
@@ -29,7 +26,7 @@ app.get('/country/:countryName',cors(), (req, res) => {
 
 
 
-app.get('/capital/:countryCapital', cors(), (req, res) => {
+app.get('/capital/:countryCapital', (req, res) => {
     const countryCapital = req.params.countryCapital.toLowerCase();
 
     // On filtre les données pour récupérer juste la capital qui nous intéresse
@@ -41,7 +38,7 @@ app.get('/capital/:countryCapital', cors(), (req, res) => {
 });
 
 
-app.get('/region/:countryRegion', cors(), (req, res) => {
+app.get('/region/:countryRegion', (req, res) => {
     const countryRegion = req.params.countryRegion.toLowerCase();
 
     // On filtre les données pour récupérer juste la Region qui nous intéresse
@@ -51,8 +48,9 @@ app.get('/region/:countryRegion', cors(), (req, res) => {
     res.json({region: countryDataRegion});
 });
 
-app.get('/search/:countrByRegion', cors(), (req, res) => {
+app.get('/search/:countryByRegion', (req, res) => {
     const countryRegion = req.params.countryByRegion.toLowerCase();
+    // const countryRegion = req.params.countryByRegion.toLowerCase();
 
     // On filtre les données pour récupérer juste la Region qui nous intéresse
     const countryDataSearchRegion = countriesData.filter(
@@ -60,9 +58,6 @@ app.get('/search/:countrByRegion', cors(), (req, res) => {
 
     res.json({region: countryDataSearchRegion});
 });
-
-
-
 
 const port = 8005;
 app.listen(port, () => {
