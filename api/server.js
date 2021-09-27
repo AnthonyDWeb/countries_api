@@ -1,14 +1,17 @@
 const express = require("express");
+const dotenv = require('dotenv')
 const app = express();
 const cors = require('cors');
 app.use(cors());
+
+dotenv.config("./config.env")
 
 const countriesData = require("./countriesData.json");
 app.get('/all', (req, res) => {
     let countries = countriesData.map((country) => ({ 
         name: country.name, capital: country.capital, region: country.region, currencie: country.currencies[0].name 
     }))
-    res.json(countries)
+    res.json(countries);
 })
 
 
@@ -59,7 +62,7 @@ app.get('/search/:countryByRegion', (req, res) => {
     res.json({region: countryDataSearchRegion});
 });
 
-const port = 8005;
-app.listen(port, () => {
-    console.log('Server started on port: ' + port);
+
+app.listen(process.env.PORT, () => {
+    console.log('Server started on port: ' + process.env.PORT);
 })

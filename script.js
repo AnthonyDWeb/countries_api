@@ -7,30 +7,30 @@ window.onload = () => {
 
 //  recupère la réponse server en json utilisable pour js
 async function getAllCountries() {
-    const res = await fetch("http://localhost:8005/all");
+    const res = await fetch("http://countries--api.herokuapp.com/all");
     const jsonRes = await res.json();
     updateList(jsonRes)
 }
 
 async function getRegionSearch(userSearchValue) {
-    const res = await fetch(`http://localhost:8005/region/${userSearchValue}`);
+    const res = await fetch(`http://countries--api.herokuapp.com/region/${userSearchValue}`);
     const jsonRes = await res.json();
     updateList(jsonRes.region);
 }
 
 async function getCountryByRegion(regionName) {
-    const res = await fetch(`http://localhost:8005/search/${regionName}`);
+    const res = await fetch(`http://countries--api.herokuapp.com/search/${regionName}`);
     const jsonRes = await res.json();
     updateList(jsonRes.region);
 }
 async function getCountrySearch(userSearchValue) {
-    const res = await fetch(`http://localhost:8005/country/${userSearchValue}`);
+    const res = await fetch(`http://countries--api.herokuapp.com/country/${userSearchValue}`);
     const jsonRes = await res.json();
     updateList(jsonRes)
 }
 
 async function getCapitalSearch(userSearchValue) {
-    const res = await fetch(`http://localhost:8005/capital/${userSearchValue}`)
+    const res = await fetch(`http://countries--api.herokuapp.com/capital/${userSearchValue}`)
     const jsonRes = await res.json();
     updateList(jsonRes)
 }

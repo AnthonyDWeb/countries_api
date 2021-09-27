@@ -1,0 +1,20 @@
+{
+  "name": "countries_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyDWeb/countries_api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonyDWeb/countries_api/issues"
+  },
+  "homepage": "https://github.com/AnthonyDWeb/countries_api#readme"
+}
