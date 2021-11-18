@@ -3,6 +3,7 @@ window.onload = () => {
     getAllCountries();
     document.getElementById("btnShowData").addEventListener("click", handleClick);
     document.getElementById("SendByRegion").addEventListener("click", handleClickRegion);
+    document.getElementById("list").innerHTML = `<p class="data-list">loading...</p>`;
 }
 
 //  recupère la réponse server en json utilisable pour js

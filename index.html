@@ -18,37 +18,37 @@
 <body>
 
 
-    <div class="maintitle">
-      <h1>Countries API</h1>
+    <div class="div-title">
+      <h1  class="maintitle">Countries API</h1>
     </div>
     <div class="maincontainer">
 
-          <div class="container1">
+          <div class="container blue">
             
-                <input type="text" id="userSearchValue"  placeholder="Enter a country">
-                <button id="btnShowData">Show Data</button>
+                <input class="input" type="text" id="userSearchValue"  placeholder="Enter a country">
+                <button class="button" id="btnShowData">Show Data</button>
                 <form>
               
                   <div>
-                    <input type="radio" id="country" name="searcher" value="country" checked>
+                    <input  type="radio" id="country" name="searcher" value="country" checked>
                     <label for="country">Country</label>
                   </div>
               
                   <div>
-                    <input type="radio" id="capital" name="searcher"  value="capital">
+                    <input  type="radio" id="capital" name="searcher"  value="capital">
                     <label for="capital">Capital</label>
                   </div>
                   
                   <div>
-                    <input type="radio" id="region" name="searcher"  value="region">
+                    <input  type="radio" id="region" name="searcher"  value="region">
                     <label for="region">Region</label>
                   </div>
                 </form>
           </div>
 
-          <div class="container2">
+          <div class="container red">
             <form>
-              <input list="browsers" name="countryByRegion" id="countryByRegion" placeholder="Choose your region">
+              <input class="input" list="browsers" name="countryByRegion" id="countryByRegion" placeholder="Choose your region">
               <label for="countryByRegion"></label>
               <datalist id="browsers">
                 <option class="searchRegion" value="europe" selected></option>
@@ -58,14 +58,14 @@
                 <option class="searchRegion" value="oceania"></option>
                 <option class="searchRegion" value="polar"></option>
               </datalist>
-              <button id="SendByRegion" >Send</button>
+              <button class="button" id="SendByRegion" >Send</button>
             </form>
           </div>
+
     </div>
 
     <div class="data">
           <div id="list"></div>
-          <p>loading...</p>
     </div>
 
 
